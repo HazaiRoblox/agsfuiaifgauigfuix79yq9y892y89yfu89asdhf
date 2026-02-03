@@ -4,6 +4,7 @@ from PIL import Image
 from waitress import serve
 import io
 import requests
+import os
 
 app = Flask(__name__)
 CORS(app)  # Allows requests from any origin
@@ -11,8 +12,8 @@ CORS(app)  # Allows requests from any origin
 # ─────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────
-HOST = "0.0.0.0"   # Listen on all network interfaces
-PORT = 5000         # Change this if you need a different port
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 5000))
 
 # ─────────────────────────────────────────────
 # ROUTES
